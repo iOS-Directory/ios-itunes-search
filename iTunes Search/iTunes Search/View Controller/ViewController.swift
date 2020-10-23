@@ -23,9 +23,19 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
-
-
+    
+    //MARK: - Actions
+    @IBAction func segementedControl(_ sender: UISegmentedControl) {
+        //print(sender.titleForSegment(at: sender.selectedSegmentIndex))
+    }
+    
+    
+    
+    
 }
+
+
+
 
 //MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource{
@@ -35,8 +45,11 @@ extension ViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell")! as UITableViewCell
         
+        cell.textLabel?.text = "Testing Description"
+        
+        cell.detailTextLabel?.text = "Testing Subtitle"
         
         return cell
     }
