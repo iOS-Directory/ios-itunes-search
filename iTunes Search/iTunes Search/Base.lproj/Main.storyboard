@@ -59,6 +59,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="iTunes Search" id="Vdk-tz-tHj"/>
+                    <connections>
+                        <outlet property="tableView" destination="dn9-5h-zVh" id="Y8f-F5-fcf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
