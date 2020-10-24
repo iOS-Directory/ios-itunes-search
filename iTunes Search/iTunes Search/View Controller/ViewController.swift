@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
 
     //MARK: - Properties
-    
+    var name:[String] = []
     
     //MARK: - View life cycle
     override func viewDidLoad() {
@@ -27,11 +27,23 @@ class ViewController: UIViewController {
     //MARK: - Actions
     @IBAction func segementedControl(_ sender: UISegmentedControl) {
         //print(sender.titleForSegment(at: sender.selectedSegmentIndex))
+        var button = sender.selectedSegmentIndex
+        
+        if  button == 0 {
+            name.append("Kristen")
+            updateViews()
+        }else if button == 1{
+            name.append("Fritz")
+            updateViews()
+        }else if button == 2 {
+            name.append("Anna")
+            updateViews()
+        }
     }
     
-    
-    
-    
+    func updateViews()  {
+        tableView.reloadData()
+    }
 }
 
 
@@ -40,19 +52,23 @@ class ViewController: UIViewController {
 //MARK: - UITableViewDataSource
 extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return name.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell")! as UITableViewCell
         
-        cell.textLabel?.text = "Testing Description"
+        let data = name[indexPath.row]
         
-        cell.detailTextLabel?.text = "Testing Subtitle"
+        cell.textLabel?.text = data
+        
+        cell.detailTextLabel?.text = "\(name.count)"
         
         return cell
     }
+    
+    
     
     
 }

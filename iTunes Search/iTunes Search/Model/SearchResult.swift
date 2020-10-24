@@ -7,6 +7,11 @@
 
 import Foundation
 
+//enum CodingKeys: String, CodingKey {
+//typealias RawValue = <#type#>
+
+////    case  title
+//}
 
 struct SearchResult: Codable {
     var title: String
