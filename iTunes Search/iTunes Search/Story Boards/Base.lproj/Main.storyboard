@@ -79,6 +79,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="iTunes Search" id="Vdk-tz-tHj"/>
                     <connections>
+                        <outlet property="searchBar" destination="iuq-ux-r64" id="38k-yR-dZH"/>
                         <outlet property="tableView" destination="dn9-5h-zVh" id="Y8f-F5-fcf"/>
                     </connections>
                 </viewController>

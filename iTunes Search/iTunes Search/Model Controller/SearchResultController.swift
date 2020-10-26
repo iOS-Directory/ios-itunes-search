@@ -44,7 +44,34 @@ class SearchResultController {
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
-        }
+            if let error = error {
+                print("Error fetching data \(error)")
+                completion()
+                return
+            }
+            
+            guard let data = data else {
+                print("No data return from API")
+                completion()
+                return
+            }
+            
+            
+            let jsonDecoder = JSONDecoder()
+            
+            //clear curent data
+            self.searchResults.removeAll()
+            
+            do{
+                let returnData = try jsonDecoder.decode(SearchResults.self, from: data)
+                self.searchResults.append(contentsOf: returnData.results)
+                completion()
+            }catch{
+                print("Error decoding data: \(error)")
+                completion()
+            }
+            
+        }.resume()
         
     }
 }
