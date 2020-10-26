@@ -29,7 +29,7 @@ class SearchResultController {
         var urlComponents = URLComponents(url: baseURL, resolvingAgainstBaseURL: true)
         
         let queryItem1 = URLQueryItem(name: "term", value: searchTerm)
-        let queryItem2 = URLQueryItem(name: "media", value: resultType.rawValue)
+        let queryItem2 = URLQueryItem(name: "entity", value: resultType.rawValue)
         
         urlComponents?.queryItems = [queryItem1,queryItem2]
         

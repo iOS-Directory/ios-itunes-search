@@ -28,6 +28,8 @@ class ViewController: UIViewController {
     
     //MARK: - Actions
     @IBAction func segementedControl(_ sender: UISegmentedControl) {
+    
+        
         switch sender.selectedSegmentIndex {
         case 0:
             resultType = .software
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
         default:
             resultType = .software
         }
+        
        
     }
     
